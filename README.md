@@ -82,7 +82,7 @@ DEBUG=false
 
 ## 🚀 Quick Start
 
-### 1. Start the Server
+### 1. Start Server
 
 ```bash
 # Development mode with auto-reload
@@ -93,12 +93,12 @@ python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 python -m uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
 ```
 
-### 2. Access the API
+### 2. Access API
 
 - **API Documentation**: http://localhost:8000/docs
 - **Health Check**: http://localhost:8000/health
 
-### 3. Test the System
+### 3. Test System
 
 ```bash
 # Using curl
@@ -114,6 +114,34 @@ response = requests.post(
     json={"query": "What is the invoice number from CFB company?"}
 )
 print(response.json())
+```
+
+### 4. Demo Setup (Optional)
+
+For testing with demo documents, see:
+- **`demo_documents/README.md`** - Demo documents usage guide
+- **`WEB_DEMO_INSTRUCTIONS.md`** - Web-based demo instructions
+
+#### Upload Demo Documents
+```bash
+# Using web interface
+# Open http://localhost:8000
+# Navigate to Upload section
+# Select files from demo_documents/ folder
+# Upload and wait for processing
+
+# Using Python scripts
+python upload_demo_docs.py
+```
+
+#### Test Demo Queries
+```bash
+# Web interface testing
+# Open http://localhost:8000
+# Use chat interface with demo documents
+
+# Python testing
+python test_demo_queries.py
 ```
 
 ## 📁 Project Structure
