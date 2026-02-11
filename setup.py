@@ -11,14 +11,14 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
     requirements = [line.strip() for line in fh if line.strip() and not line.startswith("#")]
 
 setup(
-    name="advanced-rag-system",
+    name="RAG_advanced",
     version="1.0.0",
     author="Your Name",
     author_email="your.email@example.com",
     description="Advanced Multi-Agent RAG System with LangChain and LangGraph",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/advanced-rag-system",
+    url="https://github.com/yourusername/RAG_advanced",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",

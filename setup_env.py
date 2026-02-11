@@ -113,22 +113,21 @@ def create_env_file():
     env_content = """# Google AI API Key (Required)
 GOOGLE_API_KEY=your_google_api_key_here
 
+# Serper API Key (Required for web search)
+SERPER_API_KEY=your_serper_api_key_here
+
 # Ollama Configuration (Optional)
 OLLAMA_BASE_URL=http://localhost:11434
 OLLAMA_MODEL=llama2
 
 # Vector Database Configuration
 CHROMA_PERSIST_DIRECTORY=./chroma_db
-EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+EMBEDDING_MODEL=models/gemini-embedding-001
 
 # Server Configuration
 HOST=0.0.0.0
 PORT=8000
 DEBUG=false
-
-# Web Search Configuration (Optional)
-WEB_SEARCH_ENABLED=true
-WEB_SEARCH_API_KEY=your_web_search_api_key
 """
     
     try:

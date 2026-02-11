@@ -20,6 +20,10 @@ chromadb>=0.4.22
 rank-bm25>=0.2.2
 sentence-transformers>=2.3.0
 
+# Re-ranking
+torch>=2.0.0
+transformers>=4.30.0
+
 # Document Processing
 pypdf>=5.0.0
 pytesseract>=0.3.10

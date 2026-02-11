@@ -10,22 +10,16 @@ services:
       # Google AI API Key (Required)
       - GOOGLE_API_KEY=${GOOGLE_API_KEY}
       
+      # Serper API Key (Required for web search)
+      - SERPER_API_KEY=${SERPER_API_KEY}
+      
       # Ollama Configuration (Optional)
       - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
       - OLLAMA_MODEL=${OLLAMA_MODEL:-llama2}
       
       # Vector Database Configuration
       - CHROMA_PERSIST_DIRECTORY=/app/chroma_db
-      - EMBEDDING_MODEL=${EMBEDDING_MODEL:-sentence-transformers/all-MiniLM-L6-v2}
-      
-      # Server Configuration
-      - HOST=0.0.0.0
-      - PORT=8000
-      - DEBUG=${DEBUG:-false}
-      
-      # Web Search Configuration (Optional)
-      - WEB_SEARCH_ENABLED=${WEB_SEARCH_ENABLED:-true}
-      - WEB_SEARCH_API_KEY=${WEB_SEARCH_API_KEY}
+      - EMBEDDING_MODEL=${EMBEDDING_MODEL:-models/gemini-embedding-001}
     volumes:
       # Persist vector database
       - ./chroma_db:/app/chroma_db
