@@ -25,24 +25,34 @@ A sophisticated Retrieval-Augmented Generation (RAG) system built with LangChain
 
 ## 🛠️ Installation
 
-### 1. Clone the Repository
+### 1. Clone Repository
 
 ```bash
 git clone <your-repository-url>
-cd advanced-rag-system
+cd RAG_advanced
 ```
 
 ### 2. Create Virtual Environment
 
 ```bash
-# Using venv
+# Automated setup (recommended)
+python setup_env.py
+
+# Or manual setup
+# 1. Create venv
 python -m venv venv
 
-# Activate on Windows
+# 2. Activate venv
+# Windows:
 venv\Scripts\activate
-
-# Activate on macOS/Linux
+# macOS/Linux:
 source venv/bin/activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Create .env file
+# Copy from .env.example and add your API keys
 ```
 
 ### 3. Install Dependencies
@@ -57,7 +67,7 @@ pip install -e .
 
 ### 4. Environment Setup
 
-Create a `.env` file in the project root:
+Create a `.env` file in project root:
 
 ```env
 # Google AI API Key (Required)
@@ -82,7 +92,30 @@ DEBUG=false
 
 ## 🚀 Quick Start
 
-### 1. Start Server
+### 1. Setup Environment
+
+```bash
+# Automated setup (recommended)
+python setup_env.py
+
+# Or manual setup
+# 1. Create venv
+python -m venv venv
+
+# 2. Activate venv
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Create .env file
+# Copy from .env.example and add your API keys
+```
+
+### 2. Start Server
 
 ```bash
 # Development mode with auto-reload
@@ -93,27 +126,50 @@ python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 python -m uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
 ```
 
-### 2. Access API
+### 3. Access Web Interface & Upload Documents
 
-- **API Documentation**: http://localhost:8000/docs
-- **Health Check**: http://localhost:8000/health
+After starting the server:
 
-### 3. Test System
+1. **Open Web Interface**: Go to **http://localhost:8000**
+2. **Navigate to Upload Section**: Look for "Upload" or "Documents" section
+3. **Upload Your PDF Files**: 
+   - Click "Choose Files" or "Browse" button
+   - Select your PDF documents (invoices, reports, guides, etc.)
+   - Click "Upload" to process and index them
+4. **Start Asking Questions**: Use the chat interface to query your uploaded documents
+
+### 📤 Demo Documents Available
+
+For testing, the system includes demo documents in the `demo_documents/` folder:
+- **White Simple Invoice.pdf** - Sample business invoice
+- **sample-invoice.pdf** - Invoice template example
+- **Risk_Fraud_Analyst_Learning_Guide.pdf** - Educational fraud analysis guide
+
+### 📋 Upload Your Own Documents
+
+```bash
+# Using curl
+curl -X POST "http://localhost:8000/upload" \
+  -F "file=@your_document.pdf"
+
+# Using web interface
+# 1. Open http://localhost:8000
+# 2. Go to Upload section
+# 3. Select your PDF files
+# 4. Click Upload
+```
+
+### 🔍 Test the System
 
 ```bash
 # Using curl
 curl -X POST "http://localhost:8000/ask" \
   -H "Content-Type: application/json" \
-  -d '{"query": "What is the invoice number from CFB company?"}'
+  -d '{"query": "What is the invoice number from your uploaded document?"}'
 
-# Using Python
-import requests
-
-response = requests.post(
-    "http://localhost:8000/ask",
-    json={"query": "What is the invoice number from CFB company?"}
-)
-print(response.json())
+# Using web interface
+# 1. Open http://localhost:8000
+# 2. Use the chat interface to ask questions about your documents
 ```
 
 ### 4. Demo Setup (Optional)
