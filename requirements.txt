@@ -1,0 +1,46 @@
+# LLM & Embeddings
+google-generativeai>=0.8.0
+ollama>=0.3.0
+
+# Orchestration
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-google-genai>=2.0.0
+langchain-community>=0.3.0
+langchain-ollama>=0.1.0
+langchain-core>=0.3.0
+
+# Backend
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+python-multipart>=0.0.12
+
+# Vector Store & Search
+chromadb>=0.4.22
+rank-bm25>=0.2.2
+sentence-transformers>=2.3.0
+
+# Document Processing
+pypdf>=5.0.0
+pytesseract>=0.3.10
+Pillow>=11.0.0
+pdf2image>=1.17.0
+
+# NLP & Chunking
+langchain-text-splitters>=0.3.0
+tiktoken>=0.7.0
+nltk>=3.9.0
+
+# Web Search
+requests>=2.31.0
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.9.0
+numpy>=1.26.0
+
+# Additional dependencies for LangChain agents and tools
+httpx>=0.25.0
+aiofiles>=23.0.0
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4

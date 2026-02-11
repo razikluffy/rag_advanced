@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  rag-system:
+    build: .
+    container_name: advanced-rag-system
+    ports:
+      - "8000:8000"
+    environment:
+      # Google AI API Key (Required)
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      
+      # Ollama Configuration (Optional)
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      - OLLAMA_MODEL=${OLLAMA_MODEL:-llama2}
+      
+      # Vector Database Configuration
+      - CHROMA_PERSIST_DIRECTORY=/app/chroma_db
+      - EMBEDDING_MODEL=${EMBEDDING_MODEL:-sentence-transformers/all-MiniLM-L6-v2}
+      
+      # Server Configuration
+      - HOST=0.0.0.0
+      - PORT=8000
+      - DEBUG=${DEBUG:-false}
+      
+      # Web Search Configuration (Optional)
+      - WEB_SEARCH_ENABLED=${WEB_SEARCH_ENABLED:-true}
+      - WEB_SEARCH_API_KEY=${WEB_SEARCH_API_KEY}
+    volumes:
+      # Persist vector database
+      - ./chroma_db:/app/chroma_db
+      
+      # Persist uploaded files
+      - ./uploads:/app/uploads
+      
+      # Persist logs
+      - ./logs:/app/logs
+      
+      # Persist data
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Ollama service for local LLM
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama_data:/root/.ollama
+    restart: unless-stopped
+    profiles:
+      - ollama
+
+volumes:
+  ollama_data:
