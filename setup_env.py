@@ -118,7 +118,7 @@ SERPER_API_KEY=your_serper_api_key_here
 
 # Ollama Configuration (Optional)
 OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=llama2
+OLLAMA_MODEL=llama-3.1-latest
 
 # Vector Database Configuration
 CHROMA_PERSIST_DIRECTORY=./chroma_db
