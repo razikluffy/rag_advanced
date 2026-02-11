@@ -90,7 +90,16 @@ PORT=8000
 DEBUG=false
 ```
 
-## 🚀 Quick Start
+## � Advanced Features
+
+### BAAI Re-ranking Model
+The system uses the **BAAI/bge-reranker-base** cross-encoder model for advanced neural re-ranking:
+- **Model**: `BAAI/bge-reranker-base`
+- **Purpose**: Improves document relevance scoring beyond simple keyword matching
+- **Benefits**: State-of-the-art neural re-ranking for better RAG performance
+- **Integration**: Automatically loaded in the re-ranking agent
+
+## �🚀 Quick Start
 
 ### 1. Setup Environment
 
