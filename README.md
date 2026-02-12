@@ -35,9 +35,6 @@ cd RAG_advanced
 ### 2. Create Virtual Environment
 
 ```bash
-# Automated setup (recommended)
-python setup_env.py
-
 # Or manual setup
 # 1. Create venv
 python -m venv venv
@@ -99,32 +96,9 @@ The system uses the **BAAI/bge-reranker-base** cross-encoder model for advanced 
 - **Benefits**: State-of-the-art neural re-ranking for better RAG performance
 - **Integration**: Automatically loaded in the re-ranking agent
 
-## �🚀 Quick Start
 
-### 1. Setup Environment
 
-```bash
-# Automated setup (recommended)
-python setup_env.py
-
-# Or manual setup
-# 1. Create venv
-python -m venv venv
-
-# 2. Activate venv
-# Windows:
-venv\Scripts\activate
-# macOS/Linux:
-source venv/bin/activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Create .env file
-# Copy from .env.example and add your API keys
-```
-
-### 2. Start Server
+### 5. Start Server
 
 ```bash
 # Development mode with auto-reload
@@ -135,7 +109,7 @@ python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 python -m uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
 ```
 
-### 3. Access Web Interface & Upload Documents
+### 6. Access Web Interface & Upload Documents
 
 After starting the server:
 
@@ -181,7 +155,7 @@ curl -X POST "http://localhost:8000/ask" \
 # 2. Use the chat interface to ask questions about your documents
 ```
 
-### 4. Demo Setup (Optional)
+### 7. Demo Setup (Optional)
 
 For testing with demo documents, see:
 - **`demo_documents/README.md`** - Demo documents usage guide
